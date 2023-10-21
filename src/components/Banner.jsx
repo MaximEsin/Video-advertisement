@@ -2,7 +2,11 @@ import React from "react";
 import styles from "./Banner.module.scss";
 import qr from "../images/qr-code.png";
 
-const Banner = ({ active }) => {
+const Banner = ({ active, setActive, setPromoActive }) => {
+  const handleButtonClick = () => {
+    setActive(false);
+    setPromoActive(true);
+  };
   return (
     <section className={active ? styles.banner : styles.banner__closed}>
       <p className={styles.banner__heading}>
@@ -10,7 +14,9 @@ const Banner = ({ active }) => {
       </p>
       <img src={qr} alt="QR-code" className={styles.banner__qr} />
       <p className={styles.banner__subtext}>Сканируйте QR-код или нажмите ОК</p>
-      <button className={styles.banner__button}>ОК</button>
+      <button className={styles.banner__button} onClick={handleButtonClick}>
+        ОК
+      </button>
     </section>
   );
 };

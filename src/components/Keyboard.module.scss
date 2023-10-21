@@ -1,0 +1,112 @@
+.keyboard {
+  background-color: rgba(134, 211, 244, 1);
+  width: 380px;
+  height: 720px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 72px 54px 72px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+
+  &__heading {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(0, 0, 0, 1);
+    margin: 0 0 13px;
+  }
+
+  &__phoneNumber {
+    border: none;
+    background-color: rgba(134, 211, 244, 1);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 0em;
+    width: 260px;
+    margin: 0 0 13px 0;
+  }
+
+  &__subtext {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__board {
+    margin: 33px 0 0;
+    display: flex;
+    width: 284px;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: left;
+  }
+
+  &__agreeContainer {
+    display: flex;
+    margin: 23px 0 0;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  &__button {
+    margin: 0;
+    width: 55px;
+    height: 40px;
+    border: 2px solid rgba(0, 0, 0, 1);
+    background-color: rgba(134, 211, 244, 1);
+    cursor: pointer;
+  }
+
+  &__agreeText {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 0;
+    color: rgba(86, 86, 86, 1);
+  }
+
+  &__tick {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  &__tickDisabled {
+    display: none;
+  }
+
+  &__submitButton {
+    margin: 13px 0 0;
+    width: 100%;
+    border: 1px solid rgba(78, 78, 78, 1);
+    background-color: rgba(134, 211, 244, 1);
+    color: rgba(78, 78, 78, 1);
+    padding: 19px 16px 19px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  &__submitButton:hover {
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+}

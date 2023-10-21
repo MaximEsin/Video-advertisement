@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Banner from "./components/Banner";
+import Promo from "./components/Promo";
 
 function App() {
   const [bannerActive, setBannerActive] = useState(false);
+  const [promoActive, setPromoActive] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,7 +24,12 @@ function App() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
-        <Banner active={bannerActive} />
+        <Banner
+          active={bannerActive}
+          setActive={setBannerActive}
+          setPromoActive={setPromoActive}
+        />
+        <Promo active={promoActive} setActive={setPromoActive} />
       </div>
     </div>
   );
