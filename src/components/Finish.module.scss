@@ -1,3 +1,35 @@
 .finish {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  height: 720px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+
+  &_off {
+    display: none;
+  }
+
+  &__heading {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(0, 0, 0, 1);
+    margin: 0;
+  }
+
+  &__description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(0, 0, 0, 1);
+    margin: 15px 0 0;
+  }
 }

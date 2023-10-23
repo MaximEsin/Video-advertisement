@@ -8,8 +8,8 @@ const Promo = ({ active, setActive }) => {
   const [finishActive, setFinishActive] = useState(false);
   return (
     <section className={active ? styles.promo : styles.promo__closed}>
-      <Keyboard setFinishActive={setFinishActive} />
-      <Finish />
+      <Keyboard setFinishActive={setFinishActive} finishActive={finishActive} />
+      <Finish active={finishActive} />
       <div className={styles.promo__container}>
         <button
           className={styles.promo__button}
