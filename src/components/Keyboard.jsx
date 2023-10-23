@@ -3,8 +3,11 @@ import styles from "./Keyboard.module.scss";
 import Button from "./Button";
 import check from "../images/check.svg";
 import { useSelector } from "react-redux";
+import { addNumber } from "../services/actions";
+import { useDispatch } from "react-redux";
 
 const Keyboard = ({ setFinishActive }) => {
+  const dispatch = useDispatch();
   const [agreed, setAgreed] = useState(false);
   const [buttonActive, setButtonActive] = useState(false);
   const { number } = useSelector((state) => state.dataReducer);
@@ -28,7 +31,17 @@ const Keyboard = ({ setFinishActive }) => {
         setFinishActive(true);
         return;
       }
+
+      ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].forEach((item) => {
+        if (evt.key === item) {
+          dispatch(addNumber(item));
+        }
+      });
+      if (evt.key === "Backspace") {
+        dispatch(addNumber("Del"));
+      }
     };
+
     document.addEventListener("keydown", handleButtonClick);
   }, [buttonActive]);
 

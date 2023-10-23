@@ -3,11 +3,11 @@ import styles from "./Button.module.scss";
 import { useDispatch } from "react-redux";
 import { addNumber } from "../services/actions";
 
-const Button = ({ text, size, value, index }) => {
+const Button = ({ text, size, value }) => {
   const dispatch = useDispatch();
   return (
     <button
-      onClick={() => dispatch(addNumber(value, index))}
+      onClick={() => dispatch(addNumber(value))}
       className={size ? styles.button__large : styles.button}
     >
       {text}
