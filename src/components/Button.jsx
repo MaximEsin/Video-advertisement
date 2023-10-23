@@ -1,9 +1,15 @@
 import React from "react";
 import styles from "./Button.module.scss";
+import { useDispatch } from "react-redux";
+import { addNumber } from "../services/actions";
 
-const Button = ({ text, size }) => {
+const Button = ({ text, size, value, index }) => {
+  const dispatch = useDispatch();
   return (
-    <button className={size ? styles.button__large : styles.button}>
+    <button
+      onClick={() => dispatch(addNumber(value, index))}
+      className={size ? styles.button__large : styles.button}
+    >
       {text}
     </button>
   );

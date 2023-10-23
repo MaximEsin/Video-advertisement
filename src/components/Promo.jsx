@@ -8,7 +8,10 @@ const Promo = ({ active, setActive }) => {
     <section className={active ? styles.promo : styles.promo__closed}>
       <Keyboard />
       <div className={styles.promo__container}>
-        <button className={styles.promo__button} />
+        <button
+          className={styles.promo__button}
+          onClick={() => setActive(false)}
+        />
         <div className={styles.promo__QRcontainer}>
           <p className={styles.promo__QRtext}>
             Сканируйте QR-код ДЛЯ ПОЛУЧЕНИЯ ДОПОЛНИТЕЛЬНОЙ ИНФОРМАЦИИ

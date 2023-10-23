@@ -1,22 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Keyboard.module.scss";
 import Button from "./Button";
 import check from "../images/check.svg";
+import { useSelector } from "react-redux";
 
 const Keyboard = () => {
-  const [phoneNumber, setPhoneNumber] = useState([
-    "_",
-    "_",
-    "_",
-    "_",
-    "_",
-    "_",
-    "_",
-    "_",
-    "_",
-    "_",
-  ]);
   const [agreed, setAgreed] = useState(false);
+  const { number } = useSelector((state) => state.dataReducer);
   const toggleAgreed = () => {
     setAgreed(agreed ? !agreed : true);
   };
@@ -26,25 +16,29 @@ const Keyboard = () => {
         Введите ваш номер мобильного телефона
       </p>
       <p className={styles.keyboard__phoneNumber}>
-        +7({phoneNumber[0]} {phoneNumber[1]} {phoneNumber[2]}){phoneNumber[3]}{" "}
-        {phoneNumber[4]} {phoneNumber[5]}-{phoneNumber[6]} {phoneNumber[7]}-
-        {phoneNumber[8]} {phoneNumber[9]}
+        +7({number[0]}
+        {number[1]}
+        {number[2]}){number[3]}
+        {number[4]}
+        {number[5]}-{number[6]}
+        {number[7]}-{number[8]}
+        {number[9]}
       </p>
       <p className={styles.keyboard__subtext}>
         и с Вами свяжется наш менеждер для дальнейшей консультации
       </p>
       <div className={styles.keyboard__board}>
-        <Button text="1" />
-        <Button text="2" />
-        <Button text="3" />
-        <Button text="4" />
-        <Button text="5" />
-        <Button text="6" />
-        <Button text="7" />
-        <Button text="8" />
-        <Button text="9" />
-        <Button text="Стереть" size="large" />
-        <Button text="0" />
+        <Button text="1" value="1" />
+        <Button text="2" value="2" />
+        <Button text="3" value="3" />
+        <Button text="4" value="4" />
+        <Button text="5" value="5" />
+        <Button text="6" value="6" />
+        <Button text="7" value="7" />
+        <Button text="8" value="8" />
+        <Button text="9" value="9" />
+        <Button text="Стереть" size="large" value="Del" />
+        <Button text="0" value="0" />
       </div>
       <div className={styles.keyboard__agreeContainer}>
         <img
