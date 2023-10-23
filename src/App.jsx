@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Banner from "./components/Banner";
 import Promo from "./components/Promo";
+import Finish from "./components/Finish";
 
 function App() {
   const [bannerActive, setBannerActive] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           setPromoActive={setPromoActive}
         />
         <Promo active={promoActive} setActive={setPromoActive} />
+        <Finish />
       </div>
     </div>
   );

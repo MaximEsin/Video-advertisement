@@ -105,8 +105,27 @@
     cursor: pointer;
   }
 
-  &__submitButton:hover {
+  &__submitButton_active {
     background-color: rgba(0, 0, 0, 1);
     color: rgba(255, 255, 255, 1);
+    margin: 13px 0 0;
+    width: 100%;
+    padding: 19px 16px 19px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  &__submitButton:hover {
+    transform: scale(1.1);
+  }
+
+  &__submitButton_active:hover {
+    transform: scale(1.1);
   }
 }

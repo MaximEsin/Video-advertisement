@@ -4,12 +4,34 @@ import Button from "./Button";
 import check from "../images/check.svg";
 import { useSelector } from "react-redux";
 
-const Keyboard = () => {
+const Keyboard = ({ setFinishActive }) => {
   const [agreed, setAgreed] = useState(false);
+  const [buttonActive, setButtonActive] = useState(false);
   const { number } = useSelector((state) => state.dataReducer);
   const toggleAgreed = () => {
     setAgreed(agreed ? !agreed : true);
   };
+  const index = number.findIndex((x) => x === "_");
+
+  useEffect(() => {
+    if (agreed && index === -1) {
+      setButtonActive(true);
+    }
+    if (!agreed || index !== -1) {
+      setButtonActive(false);
+    }
+  }, [agreed, number]);
+
+  useEffect(() => {
+    const handleButtonClick = (evt) => {
+      if (evt.key === "Enter" && buttonActive) {
+        setFinishActive(true);
+        return;
+      }
+    };
+    document.addEventListener("keydown", handleButtonClick);
+  }, [buttonActive]);
+
   return (
     <div className={styles.keyboard}>
       <p className={styles.keyboard__heading}>
@@ -53,7 +75,16 @@ const Keyboard = () => {
           Согласие на обработку персональных данных
         </p>
       </div>
-      <button className={styles.keyboard__submitButton}>
+      <button
+        className={
+          buttonActive
+            ? styles.keyboard__submitButton_active
+            : styles.keyboard__submitButton
+        }
+        onClick={() =>
+          buttonActive ? setFinishActive(true) : setFinishActive(false)
+        }
+      >
         Подтвердить номер
       </button>
     </div>

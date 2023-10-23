@@ -32,7 +32,6 @@ export const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_NUMBER": {
       const indexToChange = state.number.findIndex((x) => x === "_");
-      console.log(indexToChange);
 
       if (action.value === "Del") {
         if (indexToChange === -1) {

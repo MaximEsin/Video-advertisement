@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Promo.module.scss";
 import qr from "../images/qr-code.png";
 import Keyboard from "./Keyboard";
+import Finish from "./Finish";
 
 const Promo = ({ active, setActive }) => {
+  const [finishActive, setFinishActive] = useState(false);
   return (
     <section className={active ? styles.promo : styles.promo__closed}>
-      <Keyboard />
+      <Keyboard setFinishActive={setFinishActive} />
+      <Finish />
       <div className={styles.promo__container}>
         <button
           className={styles.promo__button}
