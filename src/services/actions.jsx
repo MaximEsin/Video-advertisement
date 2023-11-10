@@ -6,3 +6,11 @@ export function addNumber(value) {
     });
   };
 }
+
+export function setFocus() {
+  return function (dispatch) {
+    dispatch({
+      type: "SET_FOCUS",
+    });
+  };
+}

@@ -10,11 +10,15 @@ const Keyboard = ({ setFinishActive, finishActive }) => {
   const dispatch = useDispatch();
   const [agreed, setAgreed] = useState(false);
   const [buttonActive, setButtonActive] = useState(false);
-  const { number } = useSelector((state) => state.dataReducer);
+  const { number, focus } = useSelector((state) => state.dataReducer);
   const toggleAgreed = () => {
     setAgreed(agreed ? !agreed : true);
   };
   const index = number.findIndex((x) => x === "_");
+
+  useEffect(() => {
+    document.getElementById("11").focus();
+  }, [focus]);
 
   useEffect(() => {
     if (agreed && index === -1) {
@@ -37,6 +41,7 @@ const Keyboard = ({ setFinishActive, finishActive }) => {
           dispatch(addNumber(item));
         }
       });
+
       if (evt.key === "Backspace") {
         dispatch(addNumber("Del"));
       }
@@ -70,17 +75,17 @@ const Keyboard = ({ setFinishActive, finishActive }) => {
           и с Вами свяжется наш менеждер для дальнейшей консультации
         </p>
         <div className={styles.keyboard__board}>
-          <Button text="1" value="1" />
-          <Button text="2" value="2" />
-          <Button text="3" value="3" />
-          <Button text="4" value="4" />
-          <Button text="5" value="5" />
-          <Button text="6" value="6" />
-          <Button text="7" value="7" />
-          <Button text="8" value="8" />
-          <Button text="9" value="9" />
-          <Button text="Стереть" size="large" value="Del" />
-          <Button text="0" value="0" />
+          <Button text="1" value="1" id="11" />
+          <Button text="2" value="2" id="12" />
+          <Button text="3" value="3" id="13" />
+          <Button text="4" value="4" id="21" />
+          <Button text="5" value="5" id="22" />
+          <Button text="6" value="6" id="23" />
+          <Button text="7" value="7" id="31" />
+          <Button text="8" value="8" id="32" />
+          <Button text="9" value="9" id="33" />
+          <Button text="Стереть" size="large" value="Del" active="no" id="40" />
+          <Button text="0" value="0" active="no" id="0" />
         </div>
         <div className={styles.keyboard__agreeContainer}>
           <img
@@ -90,12 +95,17 @@ const Keyboard = ({ setFinishActive, finishActive }) => {
               agreed ? styles.keyboard__tick : styles.keyboard__tickDisabled
             }
           />
-          <button className={styles.keyboard__button} onClick={toggleAgreed} />
+          <button
+            id="50"
+            className={styles.keyboard__button}
+            onClick={toggleAgreed}
+          />
           <p className={styles.keyboard__agreeText}>
             Согласие на обработку персональных данных
           </p>
         </div>
         <button
+          id="60"
           className={
             buttonActive
               ? styles.keyboard__submitButton_active

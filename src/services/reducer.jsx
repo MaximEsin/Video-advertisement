@@ -26,6 +26,7 @@ const persistedStore = loadState();
 
 const initialState = {
   number: ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
+  focus: false,
 };
 
 export const dataReducer = (state = initialState, action) => {
@@ -52,6 +53,12 @@ export const dataReducer = (state = initialState, action) => {
           number: [...state.number],
         };
       }
+    }
+    case "SET_FOCUS": {
+      return {
+        ...state,
+        focus: true,
+      };
     }
     default:
       return state;
